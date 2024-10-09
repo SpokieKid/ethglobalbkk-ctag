@@ -1,0 +1,14 @@
+account_id = '9070c1e04479c047c6e4c1ae13950dd1'
+name = "ctag-demo"
+compatibility_date = "2024-04-01"
+compatibility_flags = ["nodejs_compat", "rpc"]
+main = "./server.ts"
+
+[site]
+bucket = "./build/client"
+
+[placement]
+mode = "smart"
+
+[env.staging]
+workers_dev = true
