@@ -1,6 +1,5 @@
 import { useLoaderData } from '@remix-run/react'
 import type { LoaderFunctionArgs } from '@remix-run/server-runtime'
-import { ConnectKitButton } from 'connectkit'
 import { Button, Input, Text } from 'degen'
 import { useState } from 'react'
 import invariant from 'tiny-invariant'
@@ -25,7 +24,6 @@ export default function () {
 
   return (
     <div className='flex flex-col items-center p-8 gap-8'>
-      <ConnectKitButton showBalance showAvatar />
       <div className='flex w-full items-end gap-4'>
         <Input label='Add user' value={user} onChange={(e) => setUser(e.target.value)} />
         <Button

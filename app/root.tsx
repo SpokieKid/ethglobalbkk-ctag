@@ -15,6 +15,7 @@ import './tailwind.css'
 import { ThemeProvider } from 'degen'
 import { holesky } from 'viem/chains'
 import 'degen/styles'
+import Navigation from './components/navigation'
 
 export const meta: MetaFunction = () => {
   return [{ title: 'Ctag Demo' }]
@@ -56,6 +57,7 @@ export default function App() {
       <QueryClientProvider client={queryClient}>
         <ConnectKitProvider>
           <ThemeProvider>
+            <Navigation />
             <Outlet />
           </ThemeProvider>
         </ConnectKitProvider>

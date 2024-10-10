@@ -1,4 +1,3 @@
-import { ConnectKitButton } from 'connectkit'
 import { Button, Input, Text } from 'degen'
 import { useState } from 'react'
 import { useAccount, useReadContract, useReadContracts, useWriteContract } from 'wagmi'
@@ -45,7 +44,6 @@ export default function () {
 
   return (
     <div className='flex flex-col items-center p-8 gap-8'>
-      <ConnectKitButton showBalance showAvatar />
       <div className='flex w-full items-end gap-4'>
         <Input
           label='Ctag name'
@@ -73,7 +71,7 @@ export default function () {
         {names?.map((name) => (
           <div key={name} className='flex items-center justify-between w-full border-t px-4 py-2'>
             <Text>#{name}</Text>
-            <Button as='a' href={`/${name}`} variant='tertiary' size='small'>
+            <Button as='a' href={`/${name}`} variant='tertiary' size='extraSmall'>
               Manage
             </Button>
           </div>
