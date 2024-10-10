@@ -1,4 +1,5 @@
 import { Button } from 'degen'
+import { address } from '~/utils/abi'
 
 export default function Footer() {
   return (
@@ -7,6 +8,16 @@ export default function Footer() {
       <footer className='fixed bottom-0 flex p-8'>
         <Button as='a' href='/api' variant='transparent' size='extraSmall'>
           API
+        </Button>
+        <Button
+          as='a'
+          href={`https://holesky.etherscan.io/address/${address}`}
+          target='_blank'
+          rel='noreferrer'
+          variant='transparent'
+          size='extraSmall'
+        >
+          Etherscan
         </Button>
         <Button
           as='a'

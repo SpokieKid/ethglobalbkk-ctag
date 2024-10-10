@@ -3,7 +3,7 @@ import type { LoaderFunctionArgs } from '@remix-run/server-runtime'
 import { Button, Text, Textarea } from 'degen'
 import { useState } from 'react'
 import invariant from 'tiny-invariant'
-import { useReadContract, useWriteContract } from 'wagmi'
+import { useAccount, useReadContract, useWriteContract } from 'wagmi'
 import { abi, address } from '~/utils/abi'
 
 export const loader = ({ params }: LoaderFunctionArgs) => {
@@ -12,6 +12,7 @@ export const loader = ({ params }: LoaderFunctionArgs) => {
 }
 
 export default function () {
+  const account = useAccount()
   const { name } = useLoaderData<typeof loader>()
   const [user, setUser] = useState('')
   const { writeContract, isPending } = useWriteContract({
@@ -28,7 +29,7 @@ export default function () {
     args: [name],
   })
 
-  return account.address ? (
+  return account?.address ? (
     <div className='flex flex-col items-center p-8 gap-8'>
       <div className='flex flex-col w-full gap-4'>
         <Textarea label='Add members' value={user} onChange={(e) => setUser(e.target.value)} />
