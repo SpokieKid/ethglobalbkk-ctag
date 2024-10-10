@@ -1,0 +1,21 @@
+diff --git a/package.json b/package.json
+index 56265d2ba04c8ba5a579ed7b50242920b9da966f..8a48116e9ad6fb8b38f7dff7561554f1d9c30418 100644
+--- a/package.json
++++ b/package.json
+@@ -5,16 +5,6 @@
+   "main": "./dist/index.cjs.js",
+   "module": "./dist/index.es.js",
+   "types": "./dist/types/index.d.ts",
+-  "exports": {
+-    ".": {
+-      "import": "./dist/index.es.js",
+-      "require": "./dist/index.cjs.js"
+-    },
+-    "./styles": {
+-      "import": "./dist/style.css",
+-      "require": "./dist/style.css"
+-    }
+-  },
+   "sideEffects": [
+     "src/atoms/**/*",
+     "src/theme/**/*",

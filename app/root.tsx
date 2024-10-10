@@ -10,10 +10,11 @@ import {
 } from '@remix-run/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ConnectKitProvider, getDefaultConfig } from 'connectkit'
-import type { Chain } from 'viem'
 import { WagmiProvider, createConfig } from 'wagmi'
 import './tailwind.css'
+import { ThemeProvider } from 'degen'
 import { holesky } from 'viem/chains'
+import 'degen/styles'
 
 export const meta: MetaFunction = () => {
   return [{ title: 'Ctag Demo' }]
@@ -21,7 +22,7 @@ export const meta: MetaFunction = () => {
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='en' className='text-[0.625rem] sm:text-xs md:text-sm lg:text-base'>
+    <html lang='en'>
       <head>
         <meta charSet='utf-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
@@ -54,7 +55,9 @@ export default function App() {
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
         <ConnectKitProvider>
-          <Outlet />
+          <ThemeProvider>
+            <Outlet />
+          </ThemeProvider>
         </ConnectKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
