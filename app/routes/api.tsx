@@ -1,5 +1,6 @@
 import { useLoaderData } from '@remix-run/react'
 import type { LoaderFunctionArgs } from '@remix-run/server-runtime'
+import { Card, Text } from 'degen'
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const url = request.url
@@ -11,14 +12,19 @@ export default function API() {
 
   return (
     <div className='p-8'>
-      <pre>
-        <code>
+      <Card hover shadow padding='24px'>
+        <Text font='mono'>
           curl{' '}
-          <a target='_blank' href={`${url}/xxxx/has-member/yyyy`} rel='noreferrer'>
+          <a
+            target='_blank'
+            href={`${url}/xxxx/has-member/yyyy`}
+            rel='noreferrer'
+            className='underline'
+          >
             {url}/xxxx/has-member/yyyy
           </a>
-        </code>
-      </pre>
+        </Text>
+      </Card>
     </div>
   )
 }

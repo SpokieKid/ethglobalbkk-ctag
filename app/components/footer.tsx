@@ -5,6 +5,9 @@ export default function Footer() {
     <>
       <div className='h-40' />
       <footer className='fixed bottom-0 flex p-8'>
+        <Button as='a' href='/api' variant='transparent' size='extraSmall'>
+          API
+        </Button>
         <Button
           as='a'
           href='https://cloud.google.com/application/web3/faucet/ethereum/holesky'
@@ -14,9 +17,6 @@ export default function Footer() {
           size='extraSmall'
         >
           Faucet
-        </Button>
-        <Button as='a' href='/api' variant='transparent' size='extraSmall'>
-          API
         </Button>
       </footer>
     </>
