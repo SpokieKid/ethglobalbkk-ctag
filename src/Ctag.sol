@@ -7,6 +7,8 @@ import {ERC721Enumerable} from "openzeppelin/token/ERC721/extensions/ERC721Enume
 contract Ctag is ERC721Enumerable {
     mapping(uint256 tokenId => string[]) private _data;
 
+    mapping(uint256 tokenId => string) public names;
+
     constructor() ERC721("Ctag", "CTAG") {}
 
     function hash(string calldata name) public pure returns (uint256) {
@@ -14,7 +16,9 @@ contract Ctag is ERC721Enumerable {
     }
 
     function mint(string calldata name) public {
-        _safeMint(msg.sender, hash(name));
+        uint256 tokenId = hash(name);
+        _safeMint(msg.sender, tokenId);
+        names[tokenId] = name;
     }
 
     function add(string calldata name, string calldata user) public {

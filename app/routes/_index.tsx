@@ -25,7 +25,7 @@ export default function () {
           loading={isPending}
           onClick={() => {
             writeContract({
-              address: '0xC9E65C23181121A688658B5c95276dE2E3325Ba0',
+              address: '0x1a3a9A054bC10639Ee86b3300CB00Db808738C2a',
               abi,
               functionName: 'mint',
               args: [name],
