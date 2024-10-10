@@ -9,16 +9,11 @@ contract CTagTest is Test {
 
     function setUp() public {
         ctag = new Ctag();
-        ctag.setNumber(0);
     }
 
-    function test_Increment() public {
-        ctag.increment();
-        assertEq(ctag.number(), 1);
-    }
-
-    function testFuzz_SetNumber(uint256 x) public {
-        ctag.setNumber(x);
-        assertEq(ctag.number(), x);
+    function test_Mint() public {
+        string memory name = "test";
+        ctag.mint(name);
+        assertEq(ctag.tokenOfOwnerByIndex(address(this), 0), uint256(keccak256(abi.encodePacked(name))));
     }
 }

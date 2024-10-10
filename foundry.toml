@@ -2,5 +2,14 @@
 src = "src"
 out = "out"
 libs = ["node_modules", "lib"]
+solc = "0.8.26"
+fs_permissions = [
+  { access = "read", path = "./out" },
+  { access = "read", path = "/var/folders" },
+  { access = "read", path = "/tmp" },
+]
+
+optimizer = true
+optimizer_runs = 100000
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
