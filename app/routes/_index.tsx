@@ -71,7 +71,7 @@ export default function () {
         {names?.map((name) => (
           <div key={name} className='flex items-center justify-between w-full border-t px-4 py-2'>
             <Text>#{name}</Text>
-            <Button as='a' href={`/${name}`} variant='tertiary' size='extraSmall'>
+            <Button as='a' href={`/name/${name}`} variant='tertiary' size='extraSmall'>
               Manage
             </Button>
           </div>

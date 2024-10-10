@@ -10,12 +10,13 @@ import {
 } from '@remix-run/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ConnectKitProvider, getDefaultConfig } from 'connectkit'
-import { WagmiProvider, createConfig } from 'wagmi'
-import './tailwind.css'
 import { ThemeProvider } from 'degen'
 import { holesky } from 'viem/chains'
-import 'degen/styles'
+import { WagmiProvider, createConfig } from 'wagmi'
+import Footer from './components/footer'
 import Navigation from './components/navigation'
+import 'degen/dist/style.css'
+import './tailwind.css'
 
 export const meta: MetaFunction = () => {
   return [{ title: 'Ctag Demo' }]
@@ -59,6 +60,7 @@ export default function App() {
           <ThemeProvider>
             <Navigation />
             <Outlet />
+            <Footer />
           </ThemeProvider>
         </ConnectKitProvider>
       </QueryClientProvider>
