@@ -8,7 +8,12 @@ import {
   isRouteErrorResponse,
   useRouteError,
 } from '@remix-run/react'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ConnectKitProvider, getDefaultConfig } from 'connectkit'
+import type { Chain } from 'viem'
+import { WagmiProvider, createConfig } from 'wagmi'
 import './tailwind.css'
+import { holesky } from 'viem/chains'
 
 export const meta: MetaFunction = () => {
   return [{ title: 'Ctag Demo' }]
@@ -32,8 +37,28 @@ export function Layout({ children }: { children: React.ReactNode }) {
   )
 }
 
+const config = createConfig(
+  getDefaultConfig({
+    appName: 'Ctag Demo',
+    walletConnectProjectId: '',
+    chains: [holesky],
+    ssr: true,
+    syncConnectedChain: true,
+  }),
+)
+
+const queryClient = new QueryClient()
+
 export default function App() {
-  return <Outlet />
+  return (
+    <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>
+        <ConnectKitProvider>
+          <Outlet />
+        </ConnectKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
+  )
 }
 
 export function ErrorBoundary() {
