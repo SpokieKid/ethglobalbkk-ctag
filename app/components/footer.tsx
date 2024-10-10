@@ -9,6 +9,7 @@ export default function Footer() {
           as='a'
           href='https://cloud.google.com/application/web3/faucet/ethereum/holesky'
           target='_blank'
+          rel='noreferrer'
           variant='transparent'
           size='extraSmall'
         >

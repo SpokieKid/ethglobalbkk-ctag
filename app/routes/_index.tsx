@@ -82,11 +82,12 @@ export default function () {
               <Button
                 as='a'
                 target='_blank'
+                rel='noreferrer'
                 href={`https://holesky.etherscan.io/nft/${address}/${tokens[index]}`}
                 variant='transparent'
                 size='extraSmall'
               >
-                View
+                View on Etherscan
               </Button>
             ) : null}
             <Button as='a' href={`/name/${name}`} variant='tertiary' size='extraSmall'>

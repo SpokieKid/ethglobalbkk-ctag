@@ -31,7 +31,7 @@ export default function () {
   return (
     <div className='flex flex-col items-center p-8 gap-8'>
       <div className='flex flex-col w-full gap-4'>
-        <Textarea label='Add user' value={user} onChange={(e) => setUser(e.target.value)} />
+        <Textarea label='Add member' value={user} onChange={(e) => setUser(e.target.value)} />
         <Button
           type='button'
           size='medium'
