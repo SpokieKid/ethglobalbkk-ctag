@@ -28,7 +28,7 @@ export default function () {
     args: [name],
   })
 
-  return (
+  return account.address ? (
     <div className='flex flex-col items-center p-8 gap-8'>
       <div className='flex flex-col w-full gap-4'>
         <Textarea label='Add members' value={user} onChange={(e) => setUser(e.target.value)} />
@@ -56,5 +56,5 @@ export default function () {
         ))}
       </div>
     </div>
-  )
+  ) : null
 }

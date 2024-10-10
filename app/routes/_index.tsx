@@ -48,7 +48,7 @@ export default function () {
     allowFailure: false,
   })
 
-  return (
+  return account.address ? (
     <div className='flex flex-col items-center p-8 gap-8'>
       <div className='flex w-full items-end gap-4'>
         <Input
@@ -97,5 +97,5 @@ export default function () {
         ))}
       </div>
     </div>
-  )
+  ) : null
 }
