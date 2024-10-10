@@ -9,16 +9,22 @@ contract Ctag is ERC721Enumerable {
 
     constructor() ERC721("Ctag", "CTAG") {}
 
-    function mint(string calldata name) public {
-        super._mint(msg.sender, uint256(keccak256(abi.encodePacked(name))));
+    function hash(string calldata name) public pure returns (uint256) {
+        return uint256(keccak256(abi.encodePacked(name)));
     }
 
-    function add(uint256 tokenId, string calldata user) public {
-        require(super.ownerOf(tokenId) == msg.sender);
+    function mint(string calldata name) public {
+        _safeMint(msg.sender, hash(name));
+    }
+
+    function add(string calldata name, string calldata user) public {
+        uint256 tokenId = hash(name);
+        require(ownerOf(tokenId) == msg.sender);
         _data[tokenId].push(user);
     }
 
-    function list(uint256 tokenId) public returns (string[] memory) {
+    function list(string calldata name) public view returns (string[] memory) {
+        uint256 tokenId = hash(name);
         return _data[tokenId];
     }
 }
