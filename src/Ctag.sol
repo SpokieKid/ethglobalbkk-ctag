@@ -21,10 +21,13 @@ contract Ctag is ERC721Enumerable {
         names[tokenId] = name;
     }
 
-    function add(string calldata name, string calldata user) public {
+    function add(string calldata name, string[] calldata users) public {
         uint256 tokenId = hash(name);
         require(ownerOf(tokenId) == msg.sender);
-        _data[tokenId].push(user);
+        for (uint256 i = 0; i < users.length; ++i) {
+            string calldata user = users[i];
+            _data[tokenId].push(user);
+        }
     }
 
     function list(string calldata name) public view returns (string[] memory) {

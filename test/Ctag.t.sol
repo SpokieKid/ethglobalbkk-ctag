@@ -16,9 +16,12 @@ contract CTagTest is Test, ERC721Holder {
         assertEq(ctag.tokenOfOwnerByIndex(address(this), 0), tokenId);
         assertEq(ctag.ownerOf(tokenId), address(this));
 
-        ctag.add(name, "xxx");
+        string[] memory users0 = new string[](1);
+        users0[0] = "xxx";
+        ctag.add(name, users0);
 
-        string[] memory names = ctag.list(name);
-        assertEq(names[0], "xxx");
+        string[] memory users1 = ctag.list(name);
+        assertEq(users1.length, 1);
+        assertEq(users1[0], "xxx");
     }
 }

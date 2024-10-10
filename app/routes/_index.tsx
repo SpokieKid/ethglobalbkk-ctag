@@ -5,8 +5,14 @@ import { abi, address } from '~/utils/abi'
 
 export default function () {
   const account = useAccount()
-  const { writeContract, isPending } = useWriteContract()
   const [name, setName] = useState('')
+  const { writeContract, isPending } = useWriteContract({
+    mutation: {
+      onSuccess() {
+        setName('')
+      },
+    },
+  })
   const { data: balanceOf } = useReadContract({
     address,
     abi,

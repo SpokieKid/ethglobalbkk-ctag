@@ -1,6 +1,6 @@
 import { useLoaderData } from '@remix-run/react'
 import type { LoaderFunctionArgs } from '@remix-run/server-runtime'
-import { Button, Input, Text } from 'degen'
+import { Button, Text, Textarea } from 'degen'
 import { useState } from 'react'
 import invariant from 'tiny-invariant'
 import { useReadContract, useWriteContract } from 'wagmi'
@@ -14,7 +14,13 @@ export const loader = ({ params }: LoaderFunctionArgs) => {
 export default function () {
   const { name } = useLoaderData<typeof loader>()
   const [user, setUser] = useState('')
-  const { writeContract, isPending } = useWriteContract()
+  const { writeContract, isPending } = useWriteContract({
+    mutation: {
+      onSuccess() {
+        setUser('')
+      },
+    },
+  })
   const { data: users } = useReadContract({
     address,
     abi,
@@ -24,8 +30,8 @@ export default function () {
 
   return (
     <div className='flex flex-col items-center p-8 gap-8'>
-      <div className='flex w-full items-end gap-4'>
-        <Input label='Add user' value={user} onChange={(e) => setUser(e.target.value)} />
+      <div className='flex flex-col w-full gap-4'>
+        <Textarea label='Add user' value={user} onChange={(e) => setUser(e.target.value)} />
         <Button
           type='button'
           size='medium'
@@ -35,7 +41,7 @@ export default function () {
               address,
               abi,
               functionName: 'add',
-              args: [name, user],
+              args: [name, user.split('\n').filter(Boolean)],
             })
           }}
         >
