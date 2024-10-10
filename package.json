@@ -4,8 +4,8 @@
   "type": "module",
   "scripts": {
     "contract:build": "forge build",
-    "contract:test": "forge test -vv --fork-url https://rpc.ankr.com/eth_sepolia",
-    "contract:deploy": "forge create $1 --rpc-url https://rpc.ankr.com/eth_sepolia",
+    "contract:test": "forge test -vv --fork-url https://rpc.ankr.com/eth_holesky",
+    "contract:deploy": "forge create $1 --rpc-url https://rpc.ankr.com/eth_holesky Ctag",
     "app:dev": "remix vite:dev",
     "app:build": "remix vite:build",
     "app:start": "wrangler dev",
