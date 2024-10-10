@@ -56,7 +56,7 @@ export default function App() {
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <ConnectKitProvider>
+        <ConnectKitProvider mode='light'>
           <ThemeProvider>
             <Navigation />
             <Outlet />
