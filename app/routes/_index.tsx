@@ -68,9 +68,21 @@ export default function () {
         </Button>
       </div>
       <div className='w-full'>
-        {names?.map((name) => (
-          <div key={name} className='flex items-center justify-between w-full border-t px-4 py-2'>
+        {names?.map((name, index) => (
+          <div key={name} className='flex items-center w-full border-t px-4 py-2 gap-2'>
             <Text>#{name}</Text>
+            <div className='w-0 flex-1' />
+            {tokens?.[index] ? (
+              <Button
+                as='a'
+                target='_blank'
+                href={`https://holesky.etherscan.io/nft/${address}/${tokens[index]}`}
+                variant='transparent'
+                size='extraSmall'
+              >
+                View
+              </Button>
+            ) : null}
             <Button as='a' href={`/name/${name}`} variant='tertiary' size='extraSmall'>
               Manage
             </Button>
