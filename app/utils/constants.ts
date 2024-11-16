@@ -2,6 +2,7 @@ import type { Address, Chain } from 'viem'
 import {
   arbitrumSepolia,
   bitkubTestnet,
+  celoAlfajores,
   flareTestnet,
   flowTestnet,
   gnosisChiado,
@@ -28,6 +29,7 @@ export const chains: Record<number, Chain> = {
   [mantleSepoliaTestnet.id]: mantleSepoliaTestnet,
   [gnosisChiado.id]: gnosisChiado,
   [flareTestnet.id]: flareTestnet,
+  [celoAlfajores.id]: celoAlfajores,
 }
 
 export const addresses: Record<number, Address> = {
@@ -40,6 +42,7 @@ export const addresses: Record<number, Address> = {
   [mantleSepoliaTestnet.id]: '0xC9E65C23181121A688658B5c95276dE2E3325Ba0',
   [gnosisChiado.id]: '0xC9E65C23181121A688658B5c95276dE2E3325Ba0',
   [flareTestnet.id]: '0xC9E65C23181121A688658B5c95276dE2E3325Ba0',
+  [celoAlfajores.id]: '0xC9E65C23181121A688658B5c95276dE2E3325Ba0',
 }
 
 export const explorers: Record<number, string> = {
@@ -52,6 +55,7 @@ export const explorers: Record<number, string> = {
   [mantleSepoliaTestnet.id]: mantleSepoliaTestnet.blockExplorers.default.url,
   [gnosisChiado.id]: gnosisChiado.blockExplorers.default.url,
   [flareTestnet.id]: flareTestnet.blockExplorers.default.url,
+  [celoAlfajores.id]: celoAlfajores.blockExplorers.default.url,
 }
 
 export const faucets: Record<number, string> = {
@@ -64,4 +68,5 @@ export const faucets: Record<number, string> = {
   [mantleSepoliaTestnet.id]: 'https://faucet.sepolia.mantle.xyz/',
   [gnosisChiado.id]: 'https://faucet.chiadochain.net/',
   [flareTestnet.id]: 'https://faucet.flare.network/coston2',
+  [celoAlfajores.id]: 'https://faucet.celo.org/alfajores',
 }
