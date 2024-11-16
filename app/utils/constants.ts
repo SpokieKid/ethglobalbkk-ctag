@@ -2,6 +2,7 @@ import type { Address, Chain } from 'viem'
 import {
   arbitrumSepolia,
   bitkubTestnet,
+  flareTestnet,
   flowTestnet,
   gnosisChiado,
   holesky,
@@ -26,6 +27,7 @@ export const chains: Record<number, Chain> = {
   [scrollSepolia.id]: scrollSepolia,
   [mantleSepoliaTestnet.id]: mantleSepoliaTestnet,
   [gnosisChiado.id]: gnosisChiado,
+  [flareTestnet.id]: flareTestnet,
 }
 
 export const addresses: Record<number, Address> = {
@@ -37,6 +39,7 @@ export const addresses: Record<number, Address> = {
   [scrollSepolia.id]: '0xC9E65C23181121A688658B5c95276dE2E3325Ba0',
   [mantleSepoliaTestnet.id]: '0xC9E65C23181121A688658B5c95276dE2E3325Ba0',
   [gnosisChiado.id]: '0xC9E65C23181121A688658B5c95276dE2E3325Ba0',
+  [flareTestnet.id]: '0xC9E65C23181121A688658B5c95276dE2E3325Ba0',
 }
 
 export const explorers: Record<number, string> = {
@@ -48,6 +51,7 @@ export const explorers: Record<number, string> = {
   [scrollSepolia.id]: scrollSepolia.blockExplorers.default.url,
   [mantleSepoliaTestnet.id]: mantleSepoliaTestnet.blockExplorers.default.url,
   [gnosisChiado.id]: gnosisChiado.blockExplorers.default.url,
+  [flareTestnet.id]: flareTestnet.blockExplorers.default.url,
 }
 
 export const faucets: Record<number, string> = {
@@ -59,4 +63,5 @@ export const faucets: Record<number, string> = {
   [scrollSepolia.id]: 'https://www.alchemy.com/faucets/ethereum-sepolia',
   [mantleSepoliaTestnet.id]: 'https://faucet.sepolia.mantle.xyz/',
   [gnosisChiado.id]: 'https://faucet.chiadochain.net/',
+  [flareTestnet.id]: 'https://faucet.flare.network/coston2',
 }
