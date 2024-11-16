@@ -3,7 +3,7 @@ import { Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/reac
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ConnectKitProvider, getDefaultConfig } from 'connectkit'
 import { ThemeProvider } from 'degen'
-import type { Chain } from 'viem'
+import { mainnet } from 'viem/chains'
 import { WagmiProvider, createConfig } from 'wagmi'
 import Navigation from './components/navigation'
 import { chains } from './utils/constants'
@@ -36,7 +36,7 @@ const config = createConfig(
   getDefaultConfig({
     appName: 'Ctag Demo',
     walletConnectProjectId: '',
-    chains: Object.values(chains) as [Chain, ...Chain[]],
+    chains: [mainnet, ...Object.values(chains)],
     ssr: true,
     syncConnectedChain: true,
   }),

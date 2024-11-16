@@ -5,6 +5,7 @@ import { useState } from 'react'
 import invariant from 'tiny-invariant'
 import { isAddress } from 'viem'
 import { useAccount, useChainId, useReadContract, useWriteContract } from 'wagmi'
+import AddressWithENS from '~/components/address-with-ens'
 import { abi } from '~/utils/abi'
 import { addresses } from '~/utils/constants'
 
@@ -57,9 +58,7 @@ export default function () {
       </div>
       <div className='w-full'>
         {users?.map((user) => (
-          <div key={user} className='flex items-center justify-between w-full border-t px-4 py-2'>
-            <Text>{user}</Text>
-          </div>
+          <AddressWithENS key={user} address={user} />
         ))}
       </div>
     </div>
