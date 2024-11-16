@@ -3,6 +3,7 @@ import type { LoaderFunctionArgs } from '@remix-run/server-runtime'
 import { Button, Text, Textarea } from 'degen'
 import { useState } from 'react'
 import invariant from 'tiny-invariant'
+import { isAddress } from 'viem'
 import { useAccount, useChainId, useReadContract, useWriteContract } from 'wagmi'
 import { abi } from '~/utils/abi'
 import { addresses } from '~/utils/constants'
@@ -46,7 +47,7 @@ export default function () {
                 address,
                 abi,
                 functionName: 'add',
-                args: [name, user.split('\n').filter(Boolean)],
+                args: [name, user.split('\n').filter((str) => isAddress(str))],
               })
             }
           }}
