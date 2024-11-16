@@ -16,10 +16,10 @@ export const chains: Record<number, Chain> = {
 }
 
 export const addresses: Record<number, Address> = {
-  [holesky.id]: '0x8A8896FC79EFA666cBBcDE6D77da76008bAB65f3',
-  [bitkubTestnet.id]: '0x4Da3A5291bd6B2fb2Db071269cd40e3037704655',
-  [polygonZkEvmCardona.id]: '0xe8f6a2ad509A63DE7118C47743DfC94baA5DFa2b',
-  [flowTestnet.id]: '0x5Ac6298fCa7231559994Ffc698D343919b5e4148',
+  [holesky.id]: '0xe5121cFe8F074F861AeD1E9062f9a049ee15A124',
+  [bitkubTestnet.id]: '0xEb14551D66de08CcE46b60Cc6bab299131c96798',
+  [polygonZkEvmCardona.id]: '0x9cCe2962a1ca45C22A54060a5Fb3C4d6AA307858',
+  [flowTestnet.id]: '0xEb14551D66de08CcE46b60Cc6bab299131c96798',
 }
 
 export const explorers: Record<number, string> = {

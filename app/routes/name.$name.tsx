@@ -1,9 +1,8 @@
 import { useLoaderData } from '@remix-run/react'
 import type { LoaderFunctionArgs } from '@remix-run/server-runtime'
-import { Button, Text, Textarea } from 'degen'
+import { Button, Textarea } from 'degen'
 import { useState } from 'react'
 import invariant from 'tiny-invariant'
-import { isAddress } from 'viem'
 import { useAccount, useChainId, useReadContract, useWriteContract } from 'wagmi'
 import AddressWithENS from '~/components/address-with-ens'
 import { abi } from '~/utils/abi'
@@ -48,7 +47,7 @@ export default function () {
                 address,
                 abi,
                 functionName: 'add',
-                args: [name, user.split('\n').filter((str) => isAddress(str))],
+                args: [name, user.split('\n').filter(Boolean)],
               })
             }
           }}
@@ -58,7 +57,7 @@ export default function () {
       </div>
       <div className='w-full'>
         {users?.map((user) => (
-          <AddressWithENS key={user} address={user} />
+          <AddressWithENS key={user} user={user} />
         ))}
       </div>
     </div>
