@@ -1,5 +1,5 @@
 import { Button } from 'degen'
-import { addresses, explorers, faucets } from '~/utils/constants'
+import { addresses, explorers } from '~/utils/constants'
 
 export default function Footer(props: { chainId: number }) {
   return (
@@ -21,7 +21,7 @@ export default function Footer(props: { chainId: number }) {
         </Button>
         <Button
           as='a'
-          href={faucets[props.chainId]}
+          href='https://ethglobal.com/faucet'
           target='_blank'
           rel='noreferrer'
           variant='transparent'

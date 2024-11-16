@@ -57,16 +57,3 @@ export const explorers: Record<number, string> = {
   [flareTestnet.id]: flareTestnet.blockExplorers.default.url,
   [celoAlfajores.id]: celoAlfajores.blockExplorers.default.url,
 }
-
-export const faucets: Record<number, string> = {
-  [holesky.id]: 'https://cloud.google.com/application/web3/faucet/ethereum/holesky',
-  [bitkubTestnet.id]: 'https://faucet.bitkubchain.com',
-  [polygonZkEvmCardona.id]: 'https://faucet.polygon.technology',
-  [flowTestnet.id]: 'https://testnet-faucet.onflow.org/fund-account',
-  [arbitrumSepolia.id]: 'https://www.alchemy.com/faucets/arbitrum-sepolia',
-  [scrollSepolia.id]: 'https://www.alchemy.com/faucets/ethereum-sepolia',
-  [mantleSepoliaTestnet.id]: 'https://faucet.sepolia.mantle.xyz/',
-  [gnosisChiado.id]: 'https://faucet.chiadochain.net/',
-  [flareTestnet.id]: 'https://faucet.flare.network/coston2',
-  [celoAlfajores.id]: 'https://faucet.celo.org/alfajores',
-}
