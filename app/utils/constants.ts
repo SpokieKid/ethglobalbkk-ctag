@@ -1,6 +1,13 @@
 import type { Address, Chain } from 'viem'
 import { bitkubTestnet, flowTestnet, holesky, polygonZkEvmCardona } from 'viem/chains'
 
+bitkubTestnet.contracts = {
+  multicall3: {
+    address: '0x5Ac6298fCa7231559994Ffc698D343919b5e4148',
+    blockCreated: 19764104,
+  },
+}
+
 export const chains: Record<number, Chain> = {
   [holesky.id]: holesky,
   [bitkubTestnet.id]: bitkubTestnet,
