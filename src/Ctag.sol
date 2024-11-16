@@ -9,7 +9,7 @@ contract Ctag is ERC721Enumerable {
 
     mapping(uint256 tokenId => string) public names;
 
-    mapping(address user => uint256[]) public declares;
+    mapping(address user => uint256[]) public _declares;
 
     constructor() ERC721("Community Tag", "CTAG") {}
 
@@ -39,6 +39,10 @@ contract Ctag is ERC721Enumerable {
 
     function declare(string calldata name) public {
         uint256 tokenId = hash(name);
-        declares[msg.sender].push(tokenId);
+        _declares[msg.sender].push(tokenId);
+    }
+
+    function getDeclares(address user) public view returns (uint256[] memory) {
+        return _declares[user];
     }
 }
