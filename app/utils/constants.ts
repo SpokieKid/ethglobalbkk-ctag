@@ -35,7 +35,7 @@ export const addresses: Record<number, Address> = {
   [flowTestnet.id]: '0xEb14551D66de08CcE46b60Cc6bab299131c96798',
   [arbitrumSepolia.id]: '0xC9E65C23181121A688658B5c95276dE2E3325Ba0',
   [scrollSepolia.id]: '0xC9E65C23181121A688658B5c95276dE2E3325Ba0',
-  [mantleSepoliaTestnet.id]: '0x',
+  [mantleSepoliaTestnet.id]: '0xC9E65C23181121A688658B5c95276dE2E3325Ba0',
   [gnosisChiado.id]: '0xC9E65C23181121A688658B5c95276dE2E3325Ba0',
 }
 
