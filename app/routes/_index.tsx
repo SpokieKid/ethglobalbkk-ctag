@@ -1,5 +1,6 @@
 import { Button, Text } from 'degen'
-import { useAccount, useWriteContract } from 'wagmi'
+import { switchChain } from 'viem/actions'
+import { useAccount, useSwitchChain, useWriteContract } from 'wagmi'
 import useCommunities from '~/hooks/use-communities'
 import { abi } from '~/utils/abi'
 import { addresses, chains } from '~/utils/constants'
@@ -8,6 +9,7 @@ export default function () {
   const account = useAccount()
   const { data: communities } = useCommunities(account.address)
   const { writeContract, isPending } = useWriteContract()
+  const { switchChainAsync } = useSwitchChain()
 
   return (
     <div className='p-8'>
@@ -17,7 +19,7 @@ export default function () {
           className='flex items-center w-full border-t px-4 py-2'
         >
           <Text>
-            {community.name}
+            #{community.name}
             <br />
             <Text size='label'>on {chains[community.chainId]?.name}</Text>
           </Text>
@@ -28,7 +30,8 @@ export default function () {
                 key={0}
                 size='extraSmall'
                 loading={isPending}
-                onClick={() => {
+                onClick={async () => {
+                  await switchChainAsync({ chainId: community.chainId })
                   writeContract({
                     chainId: community.chainId,
                     // biome-ignore lint/style/noNonNullAssertion: <explanation>
@@ -45,7 +48,8 @@ export default function () {
                 key={1}
                 size='extraSmall'
                 loading={isPending}
-                onClick={() => {
+                onClick={async () => {
+                  await switchChainAsync({ chainId: community.chainId })
                   writeContract({
                     chainId: community.chainId,
                     // biome-ignore lint/style/noNonNullAssertion: <explanation>
