@@ -1,5 +1,5 @@
 import { Button } from 'degen'
-import { addresses, chains, faucets } from '~/utils/abi'
+import { addresses, chains, faucets } from '~/utils/constants'
 
 export default function Footer(props: { chainId: number }) {
   return (

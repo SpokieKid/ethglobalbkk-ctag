@@ -6,7 +6,7 @@ import { ThemeProvider } from 'degen'
 import type { Chain } from 'viem'
 import { WagmiProvider, createConfig } from 'wagmi'
 import Navigation from './components/navigation'
-import { chains } from './utils/abi'
+import { chains } from './utils/constants'
 import 'degen/dist/style.css'
 import './tailwind.css'
 

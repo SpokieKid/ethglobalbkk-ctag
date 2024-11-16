@@ -4,7 +4,8 @@ import { Button, Text, Textarea } from 'degen'
 import { useState } from 'react'
 import invariant from 'tiny-invariant'
 import { useAccount, useChainId, useReadContract, useWriteContract } from 'wagmi'
-import { abi, addresses } from '~/utils/abi'
+import { abi } from '~/utils/abi'
+import { addresses } from '~/utils/constants'
 
 export const loader = ({ params }: LoaderFunctionArgs) => {
   invariant(params.name)
@@ -23,8 +24,7 @@ export default function () {
       },
     },
   })
-  // biome-ignore lint/style/noNonNullAssertion: <explanation>
-  const address = addresses[chainId]!
+  const address = addresses[chainId]
   const { data: users } = useReadContract({
     address,
     abi,
@@ -41,12 +41,14 @@ export default function () {
           size='medium'
           loading={isPending}
           onClick={() => {
-            writeContract({
-              address,
-              abi,
-              functionName: 'add',
-              args: [name, user.split('\n').filter(Boolean)],
-            })
+            if (address) {
+              writeContract({
+                address,
+                abi,
+                functionName: 'add',
+                args: [name, user.split('\n').filter(Boolean)],
+              })
+            }
           }}
         >
           Add

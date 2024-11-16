@@ -1,7 +1,8 @@
 import type { LoaderFunctionArgs } from '@remix-run/server-runtime'
 import invariant from 'tiny-invariant'
 import { http, createPublicClient } from 'viem'
-import { abi, addresses, chains } from '~/utils/abi'
+import { abi } from '~/utils/abi'
+import { addresses, chains } from '~/utils/constants'
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
   invariant(params.chain && params.name && params.user)

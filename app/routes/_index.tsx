@@ -2,7 +2,8 @@ import { Button, Input, Text } from 'degen'
 import { useState } from 'react'
 import { useAccount, useChainId, useReadContract, useReadContracts, useWriteContract } from 'wagmi'
 import Footer from '~/components/footer'
-import { abi, addresses, chains } from '~/utils/abi'
+import { abi } from '~/utils/abi'
+import { addresses, chains } from '~/utils/constants'
 
 export default function () {
   const account = useAccount()
@@ -15,8 +16,7 @@ export default function () {
       },
     },
   })
-  // biome-ignore lint/style/noNonNullAssertion: <explanation>
-  const address = addresses[chainId]!
+  const address = addresses[chainId]
   const { data: balanceOf } = useReadContract({
     address,
     abi,
@@ -40,15 +40,17 @@ export default function () {
     query: { enabled: !!account.address && !!balanceOf && balanceOf > 0n },
   })
   const { data: names } = useReadContracts({
-    contracts: tokens?.map(
-      (token) =>
-        ({
-          address,
-          abi,
-          functionName: 'names',
-          args: [token],
-        }) as const,
-    ),
+    contracts: address
+      ? tokens?.map(
+          (token) =>
+            ({
+              address,
+              abi,
+              functionName: 'names',
+              args: [token],
+            }) as const,
+        )
+      : [],
     allowFailure: false,
   })
   const blockExplorer = chains[chainId]?.blockExplorers?.default.url
@@ -69,12 +71,14 @@ export default function () {
               size='medium'
               loading={isPending}
               onClick={() => {
-                writeContract({
-                  address,
-                  abi,
-                  functionName: 'mint',
-                  args: [name],
-                })
+                if (address) {
+                  writeContract({
+                    address,
+                    abi,
+                    functionName: 'mint',
+                    args: [name],
+                  })
+                }
               }}
             >
               Mint
