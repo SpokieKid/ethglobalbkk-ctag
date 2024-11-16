@@ -5,6 +5,7 @@ import {
   flowTestnet,
   holesky,
   polygonZkEvmCardona,
+  scrollSepolia,
 } from 'viem/chains'
 
 bitkubTestnet.contracts = {
@@ -20,6 +21,7 @@ export const chains: Record<number, Chain> = {
   [polygonZkEvmCardona.id]: polygonZkEvmCardona,
   [flowTestnet.id]: flowTestnet,
   [arbitrumSepolia.id]: arbitrumSepolia,
+  [scrollSepolia.id]: scrollSepolia,
 }
 
 export const addresses: Record<number, Address> = {
@@ -28,6 +30,7 @@ export const addresses: Record<number, Address> = {
   [polygonZkEvmCardona.id]: '0x9cCe2962a1ca45C22A54060a5Fb3C4d6AA307858',
   [flowTestnet.id]: '0xEb14551D66de08CcE46b60Cc6bab299131c96798',
   [arbitrumSepolia.id]: '0xC9E65C23181121A688658B5c95276dE2E3325Ba0',
+  [scrollSepolia.id]: '0xC9E65C23181121A688658B5c95276dE2E3325Ba0',
 }
 
 export const explorers: Record<number, string> = {
@@ -36,6 +39,7 @@ export const explorers: Record<number, string> = {
   [polygonZkEvmCardona.id]: polygonZkEvmCardona.blockExplorers.default.url,
   [flowTestnet.id]: 'https://evm-testnet.flowscan.io',
   [arbitrumSepolia.id]: arbitrumSepolia.blockExplorers.default.url,
+  [scrollSepolia.id]: scrollSepolia.blockExplorers.default.url,
 }
 
 export const faucets: Record<number, string> = {
@@ -44,4 +48,5 @@ export const faucets: Record<number, string> = {
   [polygonZkEvmCardona.id]: 'https://faucet.polygon.technology',
   [flowTestnet.id]: 'https://testnet-faucet.onflow.org/fund-account',
   [arbitrumSepolia.id]: 'https://www.alchemy.com/faucets/arbitrum-sepolia',
+  [scrollSepolia.id]: 'https://www.alchemy.com/faucets/ethereum-sepolia',
 }
