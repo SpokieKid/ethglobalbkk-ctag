@@ -2,7 +2,7 @@ import { Button, Text } from 'degen'
 import { useAccount, useWriteContract } from 'wagmi'
 import useCommunities from '~/hooks/use-communities'
 import { abi } from '~/utils/abi'
-import { addresses } from '~/utils/constants'
+import { addresses, chains } from '~/utils/constants'
 
 export default function () {
   const account = useAccount()
@@ -14,9 +14,13 @@ export default function () {
       {communities?.map((community) => (
         <div
           key={`${community.chainId},${community.tokenId}`}
-          className='flex items-center w-full border-t px-4 py-2 gap-2'
+          className='flex items-center w-full border-t px-4 py-2'
         >
-          <Text>{community.name}</Text>
+          <Text>
+            {community.name}
+            <br />
+            <Text size='label'>on {chains[community.chainId]?.name}</Text>
+          </Text>
           <div className='w-0 flex-1' />
           {
             [
