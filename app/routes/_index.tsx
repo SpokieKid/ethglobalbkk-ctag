@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useAccount, useChainId, useReadContract, useReadContracts, useWriteContract } from 'wagmi'
 import Footer from '~/components/footer'
 import { abi } from '~/utils/abi'
-import { addresses, chains } from '~/utils/constants'
+import { addresses, chains, explorers } from '~/utils/constants'
 
 export default function () {
   const account = useAccount()
@@ -53,7 +53,6 @@ export default function () {
       : [],
     allowFailure: false,
   })
-  const blockExplorer = chains[chainId]?.blockExplorers?.default.url
 
   return (
     <>
@@ -95,9 +94,10 @@ export default function () {
                     target='_blank'
                     rel='noreferrer'
                     href={
-                      blockExplorer?.includes('etherscan')
-                        ? `${blockExplorer}/nft/${address}/${tokens[index]}`
-                        : `${blockExplorer}/token/${address}/instance/${tokens[index]}`
+                      explorers[chainId]?.includes('etherscan') ||
+                      explorers[chainId]?.includes('polygonscan')
+                        ? `${explorers[chainId]}/nft/${address}/${tokens[index]}`
+                        : `${explorers[chainId]}/token/${address}/instance/${tokens[index]}`
                     }
                     variant='transparent'
                     size='extraSmall'

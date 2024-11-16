@@ -1,5 +1,5 @@
 import { Button } from 'degen'
-import { addresses, chains, faucets } from '~/utils/constants'
+import { addresses, explorers, faucets } from '~/utils/constants'
 
 export default function Footer(props: { chainId: number }) {
   return (
@@ -11,7 +11,7 @@ export default function Footer(props: { chainId: number }) {
         </Button>
         <Button
           as='a'
-          href={`${chains[props.chainId]?.blockExplorers?.default.url}/address/${addresses[props.chainId]}`}
+          href={`${explorers[props.chainId]}/address/${addresses[props.chainId]}`}
           target='_blank'
           rel='noreferrer'
           variant='transparent'
