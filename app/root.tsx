@@ -1,13 +1,5 @@
 import type { MetaFunction } from '@remix-run/cloudflare'
-import {
-  Links,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-  isRouteErrorResponse,
-  useRouteError,
-} from '@remix-run/react'
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ConnectKitProvider, getDefaultConfig } from 'connectkit'
 import { ThemeProvider } from 'degen'
@@ -65,27 +57,5 @@ export default function App() {
         </ConnectKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
-  )
-}
-
-export function ErrorBoundary() {
-  const error = useRouteError()
-
-  if (isRouteErrorResponse(error)) {
-    return (
-      <>
-        <h1>
-          {error.status} {error.statusText}
-        </h1>
-        <p>{error.data}</p>
-      </>
-    )
-  }
-
-  return (
-    <>
-      <h1>Error!</h1>
-      <p>{(error instanceof Error ? error.message : null) ?? 'Unknown error'}</p>
-    </>
   )
 }

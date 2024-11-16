@@ -13,6 +13,6 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "ignore": ["build/*", "target/*", ".wrangler/*"]
+    "ignore": ["build/*", "lib/*", ".wrangler/*"]
   }
 }
