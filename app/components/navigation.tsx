@@ -19,7 +19,7 @@ export default function Navigation() {
         as='a'
         href='/dashboard'
         size='small'
-        variant={location.pathname === '/dashboard' ? 'secondary' : 'transparent'}
+        variant={location.pathname.startsWith('/dashboard') ? 'secondary' : 'transparent'}
       >
         Dashboard
       </Button>

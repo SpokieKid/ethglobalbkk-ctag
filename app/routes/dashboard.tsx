@@ -105,7 +105,7 @@ export default function () {
                     View on Explorer
                   </Button>
                 ) : null}
-                <Button as='a' href={`/name/${name}`} variant='tertiary' size='extraSmall'>
+                <Button as='a' href={`/dashboard/${name}`} variant='tertiary' size='extraSmall'>
                   Manage
                 </Button>
               </div>
