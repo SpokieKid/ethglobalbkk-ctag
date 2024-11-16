@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "contract:build": "forge build",
-    "contract:test": "forge test -vv --fork-url $1",
+    "contract:test": "forge test -vv --fork-url https://rpc.ankr.com/eth_holesky",
     "contract:deploy": "forge create Ctag --rpc-url $1",
     "app:dev": "remix vite:dev",
     "app:build": "remix vite:build",
