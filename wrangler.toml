@@ -1,7 +1,7 @@
 account_id = '9070c1e04479c047c6e4c1ae13950dd1'
 name = "ctag-demo"
-compatibility_date = "2024-04-01"
-compatibility_flags = ["nodejs_compat", "rpc"]
+compatibility_date = "2024-09-26"
+compatibility_flags = ["nodejs_compat"]
 
 main = "./server.ts"
 
@@ -10,3 +10,6 @@ directory = "./build/client"
 
 [env.staging]
 workers_dev = true
+
+[build]
+command = "npm run app:build"
