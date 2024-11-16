@@ -94,8 +94,8 @@ export default function () {
                     target='_blank'
                     rel='noreferrer'
                     href={
-                      explorers[chainId]?.includes('etherscan') ||
-                      explorers[chainId]?.includes('polygonscan')
+                      explorers[chainId]?.includes('scan') &&
+                      !explorers[chainId]?.includes('bkcscan')
                         ? `${explorers[chainId]}/nft/${address}/${tokens[index]}`
                         : `${explorers[chainId]}/token/${address}/instance/${tokens[index]}`
                     }

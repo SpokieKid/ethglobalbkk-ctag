@@ -1,5 +1,11 @@
 import type { Address, Chain } from 'viem'
-import { bitkubTestnet, flowTestnet, holesky, polygonZkEvmCardona } from 'viem/chains'
+import {
+  arbitrumSepolia,
+  bitkubTestnet,
+  flowTestnet,
+  holesky,
+  polygonZkEvmCardona,
+} from 'viem/chains'
 
 bitkubTestnet.contracts = {
   multicall3: {
@@ -13,6 +19,7 @@ export const chains: Record<number, Chain> = {
   [bitkubTestnet.id]: bitkubTestnet,
   [polygonZkEvmCardona.id]: polygonZkEvmCardona,
   [flowTestnet.id]: flowTestnet,
+  [arbitrumSepolia.id]: arbitrumSepolia,
 }
 
 export const addresses: Record<number, Address> = {
@@ -20,6 +27,7 @@ export const addresses: Record<number, Address> = {
   [bitkubTestnet.id]: '0xEb14551D66de08CcE46b60Cc6bab299131c96798',
   [polygonZkEvmCardona.id]: '0x9cCe2962a1ca45C22A54060a5Fb3C4d6AA307858',
   [flowTestnet.id]: '0xEb14551D66de08CcE46b60Cc6bab299131c96798',
+  [arbitrumSepolia.id]: '0xC9E65C23181121A688658B5c95276dE2E3325Ba0',
 }
 
 export const explorers: Record<number, string> = {
@@ -27,6 +35,7 @@ export const explorers: Record<number, string> = {
   [bitkubTestnet.id]: bitkubTestnet.blockExplorers.default.url,
   [polygonZkEvmCardona.id]: polygonZkEvmCardona.blockExplorers.default.url,
   [flowTestnet.id]: 'https://evm-testnet.flowscan.io',
+  [arbitrumSepolia.id]: arbitrumSepolia.blockExplorers.default.url,
 }
 
 export const faucets: Record<number, string> = {
@@ -34,4 +43,5 @@ export const faucets: Record<number, string> = {
   [bitkubTestnet.id]: 'https://faucet.bitkubchain.com',
   [polygonZkEvmCardona.id]: 'https://faucet.polygon.technology',
   [flowTestnet.id]: 'https://testnet-faucet.onflow.org/fund-account',
+  [arbitrumSepolia.id]: 'https://www.alchemy.com/faucets/arbitrum-sepolia',
 }
