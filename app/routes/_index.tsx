@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useAccount, useChainId, useReadContract, useReadContracts, useWriteContract } from 'wagmi'
 import Footer from '~/components/footer'
 import { abi } from '~/utils/abi'
-import { addresses, chains, explorers } from '~/utils/constants'
+import { addresses, explorers } from '~/utils/constants'
 
 export default function () {
   const account = useAccount()
