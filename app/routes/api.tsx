@@ -21,7 +21,7 @@ export default function API() {
             rel='noreferrer'
             className='underline'
           >
-            {url}/xxxx/chain-id/has-member/yyyy
+            {url}/chain-id/xxxx/has-member/yyyy
           </a>
         </Text>
       </Card>

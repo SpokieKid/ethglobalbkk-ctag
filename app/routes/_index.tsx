@@ -1,5 +1,4 @@
 import { Button, Text } from 'degen'
-import { switchChain } from 'viem/actions'
 import { useAccount, useSwitchChain, useWriteContract } from 'wagmi'
 import useCommunities from '~/hooks/use-communities'
 import { abi } from '~/utils/abi'
@@ -38,7 +37,8 @@ export default function () {
                     address: addresses[community.chainId]!,
                     abi,
                     functionName: 'declare',
-                    args: [community.name],
+                    // biome-ignore lint/style/noNonNullAssertion: <explanation>
+                    args: [account.address!, community.name],
                   })
                 }}
               >
@@ -56,7 +56,8 @@ export default function () {
                     address: addresses[community.chainId]!,
                     abi,
                     functionName: 'declare',
-                    args: [community.name],
+                    // biome-ignore lint/style/noNonNullAssertion: <explanation>
+                    args: [account.address!, community.name],
                   })
                 }}
               >

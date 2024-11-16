@@ -24,8 +24,8 @@ contract CTagTest is Test, ERC721Holder {
         assertEq(users1.length, 1);
         assertEq(users1[0], address(0x0));
 
-        ctag.declare(name);
-        uint256[] memory declares = ctag.getDeclares(address(this));
+        ctag.declare("XXX", name);
+        uint256[] memory declares = ctag.getDeclares("XXX");
         assertEq(declares[0], tokenId);
     }
 }
