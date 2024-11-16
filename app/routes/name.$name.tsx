@@ -3,8 +3,8 @@ import type { LoaderFunctionArgs } from '@remix-run/server-runtime'
 import { Button, Text, Textarea } from 'degen'
 import { useState } from 'react'
 import invariant from 'tiny-invariant'
-import { useAccount, useReadContract, useWriteContract } from 'wagmi'
-import { abi, address } from '~/utils/abi'
+import { useAccount, useChainId, useReadContract, useWriteContract } from 'wagmi'
+import { abi, addresses } from '~/utils/abi'
 
 export const loader = ({ params }: LoaderFunctionArgs) => {
   invariant(params.name)
@@ -13,6 +13,7 @@ export const loader = ({ params }: LoaderFunctionArgs) => {
 
 export default function () {
   const account = useAccount()
+  const chainId = useChainId()
   const { name } = useLoaderData<typeof loader>()
   const [user, setUser] = useState('')
   const { writeContract, isPending } = useWriteContract({
@@ -22,6 +23,8 @@ export default function () {
       },
     },
   })
+  // biome-ignore lint/style/noNonNullAssertion: <explanation>
+  const address = addresses[chainId]!
   const { data: users } = useReadContract({
     address,
     abi,

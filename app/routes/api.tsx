@@ -17,11 +17,11 @@ export default function API() {
           curl{' '}
           <a
             target='_blank'
-            href={`${url}/xxxx/has-member/yyyy`}
+            href={`${url}/chain-id/xxxx/has-member/yyyy`}
             rel='noreferrer'
             className='underline'
           >
-            {url}/xxxx/has-member/yyyy
+            {url}/xxxx/chain-id/has-member/yyyy
           </a>
         </Text>
       </Card>

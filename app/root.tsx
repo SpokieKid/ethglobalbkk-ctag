@@ -3,10 +3,10 @@ import { Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/reac
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ConnectKitProvider, getDefaultConfig } from 'connectkit'
 import { ThemeProvider } from 'degen'
-import { holesky } from 'viem/chains'
+import type { Chain } from 'viem'
 import { WagmiProvider, createConfig } from 'wagmi'
-import Footer from './components/footer'
 import Navigation from './components/navigation'
+import { chains } from './utils/abi'
 import 'degen/dist/style.css'
 import './tailwind.css'
 
@@ -36,7 +36,7 @@ const config = createConfig(
   getDefaultConfig({
     appName: 'Ctag Demo',
     walletConnectProjectId: '',
-    chains: [holesky],
+    chains: Object.values(chains) as [Chain, ...Chain[]],
     ssr: true,
     syncConnectedChain: true,
   }),
@@ -52,7 +52,6 @@ export default function App() {
           <ThemeProvider forcedMode='light'>
             <Navigation />
             <Outlet />
-            <Footer />
           </ThemeProvider>
         </ConnectKitProvider>
       </QueryClientProvider>

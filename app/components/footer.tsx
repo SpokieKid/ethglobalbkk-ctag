@@ -1,7 +1,7 @@
 import { Button } from 'degen'
-import { address } from '~/utils/abi'
+import { addresses, chains, faucets } from '~/utils/abi'
 
-export default function Footer() {
+export default function Footer(props: { chainId: number }) {
   return (
     <>
       <div className='h-40' />
@@ -11,17 +11,17 @@ export default function Footer() {
         </Button>
         <Button
           as='a'
-          href={`https://holesky.etherscan.io/address/${address}`}
+          href={`${chains[props.chainId]?.blockExplorers?.default.url}/address/${addresses[props.chainId]}`}
           target='_blank'
           rel='noreferrer'
           variant='transparent'
           size='extraSmall'
         >
-          Etherscan
+          Explorer
         </Button>
         <Button
           as='a'
-          href='https://cloud.google.com/application/web3/faucet/ethereum/holesky'
+          href={faucets[props.chainId]}
           target='_blank'
           rel='noreferrer'
           variant='transparent'

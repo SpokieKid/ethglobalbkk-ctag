@@ -1,16 +1,19 @@
 import type { LoaderFunctionArgs } from '@remix-run/server-runtime'
 import invariant from 'tiny-invariant'
 import { http, createPublicClient } from 'viem'
-import { holesky } from 'viem/chains'
-import { abi, address } from '~/utils/abi'
-
-const client = createPublicClient({
-  chain: holesky,
-  transport: http('https://rpc.ankr.com/eth_holesky'),
-})
+import { abi, addresses, chains } from '~/utils/abi'
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
-  invariant(params.name && params.user)
+  invariant(params.chain && params.name && params.user)
+  const address = addresses[Number.parseInt(params.chain)]
+  invariant(address)
+  const chain = chains[Number.parseInt(params.chain)]
+  invariant(chain)
+
+  const client = createPublicClient({
+    chain,
+    transport: http(chain.rpcUrls.default.http[0]),
+  })
 
   const users = await client.readContract({
     address,
